@@ -6,7 +6,7 @@ function App() {
 
 
   return (
-    <div className="bg-orange-300 w-full flex justify-center min-w-[320px]">
+    <div className="w-full flex justify-center min-w-[320px]">
       <Header />
     </div>
   )
