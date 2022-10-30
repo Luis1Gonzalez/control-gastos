@@ -1,0 +1,12 @@
+#root {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(250, 248, 248);
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    box-sizing: border-box;
+    padding: 10px;
+    min-width: 320px;
+}
