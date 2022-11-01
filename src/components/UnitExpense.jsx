@@ -20,7 +20,7 @@ const categoryDictionary =  {
     suscripciones: IconoSuscripciones
 }
 
-const {name, quantity, category, dateId, id} = expenses
+const {name, quantity, category, dateId, id} = expenses//error para mañana
 console.log(expenses)
   return (
     <div>

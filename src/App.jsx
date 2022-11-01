@@ -33,7 +33,7 @@ const saveExpenses = (expense) => {
 console.log(expenses)
   return (
 
-    <div className={modal ? "classHidden" : "w-full flex justify-center min-w-[320px]"}>
+    <div className={modal ? "classHidden" : "w-full flex flex-col items-center min-w-[320px]"}>
       <Header
       budget={budget}
       setBudget={setBudget}
