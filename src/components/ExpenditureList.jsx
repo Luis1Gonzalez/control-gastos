@@ -1,8 +1,15 @@
 import React from 'react'
+import UnitExpense from './UnitExpense'
 
-const ExpenditureList = () => {
+
+const ExpenditureList = ({ expenses }) => {
   return (
-    <div></div>
+    <div>
+      <UnitExpense
+      key={expenses.id}
+      expenses={expenses}
+      />
+    </div>
   )
 }
 
