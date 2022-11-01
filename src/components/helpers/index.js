@@ -7,8 +7,8 @@ export const generateId = () => {
 }
 
 
-export const formatDate= (fecha) => {
-    const fechaNueva = new Date(fecha);
+export const formatDate= (dateNow) => {
+    const newDateNow = new Date(dateNow);
 
     const opciones = {
         year: 'numeric',
@@ -16,5 +16,5 @@ export const formatDate= (fecha) => {
         day: '2-digit',
     }
 
-    return fechaNueva.toLocaleDateString('es-ES', opciones)
+    return newDateNow.toLocaleDateString('es-ES', opciones)
 }

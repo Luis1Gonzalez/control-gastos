@@ -22,7 +22,7 @@ console.log(modal)
 
 const saveExpenses = (expense) => {
   expense.id = generateId()
-  expense.date = Date.now()
+  expense.dateNow = Date.now()
   setExpenses([...expenses, expense])
 
   setAnimationModal(false)
@@ -30,10 +30,10 @@ const saveExpenses = (expense) => {
     setModal(false)
   },1000)
 }
-console.log(expenses)
+
   return (
 
-    <div className={modal ? "classHidden" : "w-full flex flex-col items-center min-w-[320px]"}>
+    <div className={modal ? "classHidden" : "w-full flex flex-col items-center min-w-[320px] max-w-[924px]"}>
       <Header
       budget={budget}
       setBudget={setBudget}

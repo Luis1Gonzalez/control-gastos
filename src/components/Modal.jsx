@@ -9,7 +9,6 @@ const Modal = ({ saveExpenses, animationModal, setAnimationModal, setModal }) =>
     const [quantity, setQuantity] = useState ('')
     const [category, setCategory] = useState('')
     const [id, setId] = useState('')
-    const [dateId, setDateId] = useState('')
     const [message, setMessage] = useState('')
     
 
@@ -24,7 +23,7 @@ setTimeout(() => {
 },3000)
 return
     }
-    saveExpenses({name, quantity, category, id, dateId})
+    saveExpenses({name, quantity, category, id})
 }
 
 const hiddenModal = () => {

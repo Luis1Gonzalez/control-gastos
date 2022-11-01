@@ -6,9 +6,7 @@ import IconoGastos from './../assets/img/icono_gastos.svg'
 import IconoOcio from './../assets/img/icono_ocio.svg'
 import IconoSalud from './../assets/img/icono_salud.svg'
 import IconoSuscripciones from './../assets/img/icono_suscripciones.svg'
-import { formatDate } from './helpers/index'
-
-const UnitExpense = ({ expenses }) => {
+import { formatDate } from './helpers'
 
 const categoryDictionary =  {
     ahorro: IconoAhorro,
@@ -20,19 +18,31 @@ const categoryDictionary =  {
     suscripciones: IconoSuscripciones
 }
 
-const {name, quantity, category, dateId, id} = expenses//error para mañana
-console.log(expenses)
+const UnitExpense = ({ expense }) => {
+
+const {name, quantity, category, dateNow, id} = expense//error para mañana
+
+const formatCurrency = (quantity) => {
+    return quantity.toLocaleString("es-ES", {
+        style: "currency",
+        currency: "EUR",
+    });
+};
+
+
   return (
-    <div>
-        <div>
-            <img src={categoryDictionary[category]} alt="iconos de los gastos" />
+    <div className='flex flex-col p-3 w-full sm:flex-row shadow-box text-gray-700 my-3'>
+
+        <div className='h-auto  flex py-2 items-center sm:w-3/4'>
+            <img className='h-[80px] mx-2' src={categoryDictionary[category]} alt="iconos de los gastos" />
             <div>
-                <p>{category}</p>
-                <p>{name}</p>
-                <p>Agregado el:{''} <span>{formatDate(id)}</span></p>
+
+                <p className='uppercase text-sm sm:text-2xl font-bold'>{category}</p>
+                <p className='capitalize text-xs  sm:text-xl font-bold'>{name}</p>
+                <p className='text-xs sm:text-xl font-bold'>Agregado el:{''} <span className='font-normal capitalize text-xs sm:text-lg'>{formatDate(dateNow)}</span></p>
             </div>
         </div>
-        <p>{quantity}</p>
+        <p className='flex justify-end items-center px-5 sm:mx-8 font-bold text-md sm:text-3xl'>{formatCurrency(quantity)}</p>
     </div>
   )
 }
