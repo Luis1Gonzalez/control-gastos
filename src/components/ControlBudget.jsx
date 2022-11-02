@@ -28,8 +28,8 @@ const ControlBudget = ({ budget, expenses }) => {
     }, [expenses])
 
     return (
-        <div className='bg-white text-blue-500 w-[90%] font-bold rounded-md my-4 px-2 flex flex-col items-center'>
-            <div className='w-[70%] flex justify-center pt-3'>
+        <div className='bg-white text-blue-500 w-[90%] h-[220px] md:w-[50%] font-bold rounded-md my-4 px-2 flex flex-col items-center'>
+            <div className='w-[70%] flex justify-center pt-3 h-[120px]'>
                 <CircularProgressbar 
                     styles={buildStyles({
                         pathColor: percentage > 100 ? '#dc2626' : '#3b82f6',
@@ -42,7 +42,7 @@ const ControlBudget = ({ budget, expenses }) => {
             </div>
             <div className='my-3'>
                 <p>Presupuesto:<span className='text-gray-500 font-normal'>{` ${formatCurrency(budget)}`}</span></p>
-                <p>Disponible:<span className='text-gray-500 font-normal'>{available > 0 ? formatCurrency(available) : '0 €'}</span></p>
+                <p>Disponible:<span className='text-gray-500 font-normal'>{` ${formatCurrency(available)}`}</span></p>
                 <p>Gastado:<span className='text-gray-500 font-normal'>{` ${formatCurrency(spent)}`}</span></p>
             </div>
         </div>
