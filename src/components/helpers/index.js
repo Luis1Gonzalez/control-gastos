@@ -15,6 +15,12 @@ export const formatDate= (dateNow) => {
         month: 'long',
         day: '2-digit',
     }
-
     return newDateNow.toLocaleDateString('es-ES', opciones)
 }
+
+export const formatCurrency = (quantity) => {
+    return quantity.toLocaleString("es-ES", {
+        style: "currency",
+        currency: "EUR",
+    });
+};

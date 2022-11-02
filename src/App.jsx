@@ -39,6 +39,7 @@ const saveExpenses = (expense) => {
       setBudget={setBudget}
       isValidBudget={isValidBudget}
       setIsValidBudget={setIsValidBudget}
+      expenses={expenses}
       />
 
       {isValidBudget && (

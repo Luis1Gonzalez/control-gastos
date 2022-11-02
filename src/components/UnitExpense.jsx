@@ -7,6 +7,7 @@ import IconoOcio from './../assets/img/icono_ocio.svg'
 import IconoSalud from './../assets/img/icono_salud.svg'
 import IconoSuscripciones from './../assets/img/icono_suscripciones.svg'
 import { formatDate } from './helpers'
+import { formatCurrency } from './helpers'
 
 const categoryDictionary =  {
     ahorro: IconoAhorro,
@@ -22,12 +23,7 @@ const UnitExpense = ({ expense }) => {
 
 const {name, quantity, category, dateNow, id} = expense//error para mañana
 
-const formatCurrency = (quantity) => {
-    return quantity.toLocaleString("es-ES", {
-        style: "currency",
-        currency: "EUR",
-    });
-};
+
 
 
   return (
