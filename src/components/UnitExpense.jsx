@@ -32,13 +32,12 @@ const {name, quantity, category, dateNow, id} = expense//error para mañana
         <div className='h-auto  flex py-2 items-center sm:w-3/4'>
             <img className='h-[80px] mx-2' src={categoryDictionary[category]} alt="iconos de los gastos" />
             <div>
-
                 <p className='uppercase text-sm sm:text-2xl font-bold'>{category}</p>
                 <p className='capitalize text-xs  sm:text-xl font-bold'>{name}</p>
                 <p className='text-xs sm:text-xl font-bold'>Agregado el:{''} <span className='font-normal capitalize text-xs sm:text-lg'>{formatDate(dateNow)}</span></p>
             </div>
         </div>
-        <p className='flex justify-end items-center px-5 sm:mx-8 font-bold text-md sm:text-3xl'>{formatCurrency(quantity)}</p>
+        <p className='flex justify-end items-center px-5 sm:mx-8 font-bold text-md sm:text-3xl sm:w-1/4'>{formatCurrency(quantity)}</p>
     </div>
   )
 }
