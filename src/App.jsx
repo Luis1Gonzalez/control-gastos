@@ -17,7 +17,6 @@ function App() {
 
 const handleNewExpenditure= () => {
 setModal(true)
-console.log(modal)
 }
 
 const saveExpenses = (expense) => {
