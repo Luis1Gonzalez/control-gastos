@@ -27,6 +27,7 @@ const ControlBudget = ({ budget, expenses }) => {
             if(newPercentage > 200 ){
                 setMessage('Posible Error Entre el Presupuesto y los Gastos')
                 setAvailable(0)
+                setSpent(0)
             }
         },1500)
 
