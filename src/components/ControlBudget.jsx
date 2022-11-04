@@ -47,7 +47,7 @@ const ControlBudget = ({ budget, expenses }) => {
                     text={percentage > 200 ? '!Error' : `${percentage}%`}
                 />
             </div>
-            <div className='my-1 md:w-2/4 flex flex-col justify-around h-full md:py-12'>
+            <div className='xs:my-3 md:w-2/4 flex flex-col justify-around h-full md:py-12'>
                 <p>Presupuesto:<span className='text-gray-500 font-normal'>{` ${formatCurrency(budget)}`}</span></p>
                 <p>Disponible:<span className='text-gray-500 font-normal'>{` ${formatCurrency(available)}`}</span></p>
                 <p>Gastado:<span className='text-gray-500 font-normal'>{` ${formatCurrency(spent)}`}</span></p>

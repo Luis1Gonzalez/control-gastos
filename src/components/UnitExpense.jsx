@@ -51,9 +51,6 @@ const UnitExpense = ({ expense }) => {
         </TrailingActions>
       );
 
-
-
-
     return (
         <SwipeableList>
   <SwipeableListItem
