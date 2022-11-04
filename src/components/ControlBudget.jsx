@@ -24,20 +24,19 @@ const ControlBudget = ({ budget, expenses }) => {
 
         setTimeout(() => {
             setPercentage(newPercentage)
-            if(newPercentage > 200 ){
+            if (newPercentage > 200) {
                 setMessage('Posible Error Entre el Presupuesto y los Gastos')
                 setAvailable(0)
                 setSpent(0)
             }
-        },1500)
+        }, 1500)
 
-        
     }, [expenses])
 
     return (
         <div className='bg-white text-blue-500 w-[90%] min-h-[220px] md:w-[75%] font-bold rounded-md my-4 px-2 flex flex-col items-center sm:flex-row'>
             <div className='w-[70%] sm:w-2/4 flex justify-center pt-3 h-[160px]'>
-                <CircularProgressbar 
+                <CircularProgressbar
                     styles={buildStyles({
                         pathColor: percentage > 100 ? '#dc2626' : '#3b82f6',
                         trailColor: '#f5f5f5',
@@ -53,7 +52,7 @@ const ControlBudget = ({ budget, expenses }) => {
                 <p>Gastado:<span className='text-gray-500 font-normal'>{` ${formatCurrency(spent)}`}</span></p>
                 {message && <Message type="error">{message}</Message>}
             </div>
-            
+
         </div>
     )
 }
