@@ -30,6 +30,12 @@ const saveExpenses = (expense) => {
   },1000)
 }
 
+const deleteExpense = (id) => {
+  const expenseUpdate = expenses.filter(expense => expense.id !== id)
+
+  setExpenses(expenseUpdate)
+}
+
   return (
 
     <div className={modal ? "classHidden" : "w-full flex flex-col items-center min-w-[320px] max-w-[924px]"}>
@@ -45,6 +51,7 @@ const saveExpenses = (expense) => {
         <>
         <ExpenditureList 
         expenses={expenses}
+        deleteExpense={deleteExpense}
         />
 
         <div className='fixed bottom-10 right-12'>
