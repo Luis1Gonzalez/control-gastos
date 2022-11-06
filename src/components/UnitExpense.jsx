@@ -30,13 +30,13 @@ const categoryDictionary = {
 
 
 
-const UnitExpense = ({ expense, deleteExpense }) => {
+const UnitExpense = ({ expense, deleteExpense, setExpenseEdit }) => {
 
     const { name, quantity, category, dateNow, id } = expense
 
     const leadingActions = () => (
         <LeadingActions>
-            <SwipeAction onClick={() => console.info('swipe action triggered')}>
+            <SwipeAction onClick={() => setExpenseEdit(expense) && console.log(expense)}>
                 Editar
             </SwipeAction>
         </LeadingActions>
@@ -52,7 +52,7 @@ const UnitExpense = ({ expense, deleteExpense }) => {
             </SwipeAction>
         </TrailingActions>
     );
-console.log(id)
+
     return (
         <SwipeableList>
             <SwipeableListItem

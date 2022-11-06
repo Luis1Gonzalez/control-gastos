@@ -1,47 +1,54 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import CloseBtn from '../assets/img/cerrar.svg'
 import Message from './Message'
 
-const Modal = ({ saveExpenses, animationModal, setAnimationModal, setModal }) => {
+const Modal = ({ saveExpenses, animationModal, setAnimationModal, setModal, setExpenseEdit, expenseEdit }) => {
 
     const [name, setName] = useState('')
-    const [quantity, setQuantity] = useState ('')
+    const [quantity, setQuantity] = useState('')
     const [category, setCategory] = useState('')
     const [id, setId] = useState('')
     const [message, setMessage] = useState('')
-    
 
-const handleSubmit = (e) => {
-    e.preventDefault()
+    useEffect(() => {
+        if (Object.keys(expenseEdit).length > 0) {
+            setName(expenseEdit.name)
+            setQuantity(expenseEdit.quantity)
+            setCategory(expenseEdit.category)
+            setId(expenseEdit.id)
+        }
+    },[])
 
-    if([name, quantity, category]. includes('')){
-setMessage('Todos los Campos son Obligatorios')
+    const hiddenModal = () => {
+        setAnimationModal(false)
+        setExpenseEdit({})
 
-setTimeout(() => {
-    setMessage('')
-},3000)
-return
+        setTimeout(() => {
+            setModal(false)
+        }, 1000);
     }
-    saveExpenses({name, quantity, category, id})
-}
-
-const hiddenModal = () => {
-    setAnimationModal(false)
-
-    setAnimationModal(false)
-    setTimeout(() => {
-      setModal(false)
-    }, 1000);
-}
 
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        if ([name, quantity, category].includes('')) {
+            setMessage('Todos los Campos son Obligatorios')
+
+            setTimeout(() => {
+                setMessage('')
+            }, 3000)
+            return
+        }
+        saveExpenses({ name, quantity, category, id })
+    }
 
     return (
         <div className='modal text-white text-2xl'>
 
             <div className='absolute right-6 top-6 w-6 h-6'>
-                <img src={CloseBtn} alt="boton cerrar modal"  onClick={hiddenModal}/>
+                <img src={CloseBtn} alt="boton cerrar modal" onClick={hiddenModal} />
             </div>
 
             <form className='w-[95%] py-20 flex flex-col items-center' onSubmit={handleSubmit}>
@@ -55,7 +62,7 @@ const hiddenModal = () => {
                 </div>
 
                 <div className='flex my-3'>
-                    <input id="quantity" value={quantity} type="text" placeholder="Añade la Cantidad" className='placeholder:text-gray-500 rounded-sm placeholder:text-center text-black text-center' onChange={(e)=> setQuantity(Number(e.target.value))}/>
+                    <input id="quantity" value={quantity} type="text" placeholder="Añade la Cantidad" className='placeholder:text-gray-500 rounded-sm placeholder:text-center text-black text-center' onChange={(e) => setQuantity(Number(e.target.value))} />
                 </div>
 
                 <div className='flex my-3'>
@@ -70,7 +77,7 @@ const hiddenModal = () => {
                         <option value="suscripciones">Suscripciones</option>
                     </select>
                 </div>
-                <input type="submit" value="Añadir Gasto" className='bg-blue-700 p-2 rounded-md text-md mt-3 shadow-sm shadow-indigo-500/40' />
+                <input type="submit" value={expenseEdit.name ? 'Guardar Cambios' : 'Añadir Gasto'} className='bg-blue-700 p-2 rounded-md text-md mt-3 shadow-sm shadow-indigo-500/40' />
             </form>
 
 
