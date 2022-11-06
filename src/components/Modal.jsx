@@ -53,7 +53,7 @@ const Modal = ({ saveExpenses, animationModal, setAnimationModal, setModal, setE
 
             <form className='w-[95%] py-20 flex flex-col items-center' onSubmit={handleSubmit}>
 
-                <legend className='p-2 mb-6 w-[95%] text-center text-3xl border-b-2 border-blue-700'>Nuevo Gasto</legend>
+                <legend className='p-2 mb-6 w-[95%] text-center text-3xl border-b-2 border-blue-700'>{expenseEdit.name ? 'Editar Cambios' : 'Nuevo Gasto'}</legend>
 
                 {message && <Message type='error'>{message}</Message>}
 

@@ -6,7 +6,7 @@ const ExpenditureList = ({ expenses, deleteExpense, setExpenseEdit }) => {
 
   return (
     <div className='w-[90%] md:w-[80%] '>
-      <p className='text-xl mt-3 text-center'>Gastos</p>
+      <p className='text-xl mt-3 text-center'>{expenses.length ? 'Gastos' : 'No Hay Gastos'}</p>
       {expenses.map(expense => (
 
         <UnitExpense
