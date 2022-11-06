@@ -3,6 +3,7 @@ import './App.css'
 import Header from './components/Header'
 import ExpenditureList from './components/ExpenditureList'
 import Modal from './components/Modal'
+import Filters from './components/Filters'
 import IconNewExpenditure from './assets/img/nuevo-gasto.svg'
 import { generateId } from './components/helpers/index'
 import { object } from 'prop-types'
@@ -10,12 +11,14 @@ import { object } from 'prop-types'
 
 function App() {
 
-  const [budget, setBudget] = useState('')
+  const [budget, setBudget] = useState(Number(localStorage.getItem('budget')))
   const [isValidBudget, setIsValidBudget] = useState(false)
   const [modal, setModal] = useState(false)
-  const [expenses, setExpenses] = useState([]) //[gastos, setGastos]
+  const [expenses, setExpenses] = useState(localStorage.getItem('expenses') ? JSON.parse(localStorage.getItem('expenses')) : []) 
   const [animationModal, setAnimationModal] = useState(false)
   const [expenseEdit, setExpenseEdit] = useState({})
+  const [filter, setFilter] = useState([])
+  const [filterExpenses, setFilterExpenses] = useState([])
 
   useEffect(() => {
     if (Object.keys(expenseEdit).length > 0) {
@@ -63,6 +66,24 @@ function App() {
     setExpenses(expenseUpdate)
   }
 
+  useEffect(() => {
+const budgetLS = Number(localStorage.getItem('budget')) ?? 0 
+
+localStorage.setItem('budget', budget ?? 0)
+  },[budget])
+
+  useEffect(() => {
+    if(budget > 0){
+setIsValidBudget(true)
+    }
+  },[])
+
+  useEffect(() => {
+localStorage.setItem('expenses', JSON.stringify(expenses) ?? [])
+  },[expenses])
+
+  // useEffect(() => {})
+
   return (
 
     <div className={modal ? "classHidden" : "w-full flex flex-col items-center min-w-[320px] max-w-[924px]"}>
@@ -76,12 +97,19 @@ function App() {
 
       {isValidBudget && (
         <>
+        <main className='w-[90%] flex flex-col items-center my-4'>
+<Filters 
+filter={filter}
+setFilter={setFilter}
+/>
+
+
           <ExpenditureList
             expenses={expenses}
             deleteExpense={deleteExpense}
             setExpenseEdit={setExpenseEdit}
           />
-
+</main>
           <div className='fixed bottom-10 right-12'>
             <img className='w-10' src={IconNewExpenditure} alt="Icono de nuevo gasto" onClick={() => handleNewExpenditure()} />
           </div>
