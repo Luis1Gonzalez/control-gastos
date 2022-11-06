@@ -14,11 +14,10 @@ function App() {
   const [budget, setBudget] = useState(Number(localStorage.getItem('budget')))
   const [isValidBudget, setIsValidBudget] = useState(false)
   const [modal, setModal] = useState(false)
-  const [expenses, setExpenses] = useState(localStorage.getItem('expenses') ? JSON.parse(localStorage.getItem('expenses')) : []) 
+  const [expenses, setExpenses] = useState(localStorage.getItem('expenses') ? JSON.parse(localStorage.getItem('expenses')) : [])
   const [animationModal, setAnimationModal] = useState(false)
   const [expenseEdit, setExpenseEdit] = useState({})
-  const [filter, setFilter] = useState([])
-  const [filterExpenses, setFilterExpenses] = useState([])
+
 
   useEffect(() => {
     if (Object.keys(expenseEdit).length > 0) {
@@ -67,22 +66,20 @@ function App() {
   }
 
   useEffect(() => {
-const budgetLS = Number(localStorage.getItem('budget')) ?? 0 
+    const budgetLS = Number(localStorage.getItem('budget')) ?? 0
 
-localStorage.setItem('budget', budget ?? 0)
-  },[budget])
+    localStorage.setItem('budget', budget ?? 0)
+  }, [budget])
 
   useEffect(() => {
-    if(budget > 0){
-setIsValidBudget(true)
+    if (budget > 0) {
+      setIsValidBudget(true)
     }
-  },[])
+  }, [])
 
   useEffect(() => {
-localStorage.setItem('expenses', JSON.stringify(expenses) ?? [])
-  },[expenses])
-
-  // useEffect(() => {})
+    localStorage.setItem('expenses', JSON.stringify(expenses) ?? [])
+  }, [expenses])
 
   return (
 
@@ -93,23 +90,20 @@ localStorage.setItem('expenses', JSON.stringify(expenses) ?? [])
         isValidBudget={isValidBudget}
         setIsValidBudget={setIsValidBudget}
         expenses={expenses}
+        setExpenses={setExpenses}
       />
 
       {isValidBudget && (
         <>
-        <main className='w-[90%] flex flex-col items-center my-4'>
-<Filters 
-filter={filter}
-setFilter={setFilter}
-/>
+          <main className='w-[90%] flex flex-col items-center my-4'>
 
+            <ExpenditureList
+              expenses={expenses}
+              deleteExpense={deleteExpense}
+              setExpenseEdit={setExpenseEdit}
 
-          <ExpenditureList
-            expenses={expenses}
-            deleteExpense={deleteExpense}
-            setExpenseEdit={setExpenseEdit}
-          />
-</main>
+            />
+          </main>
           <div className='fixed bottom-10 right-12'>
             <img className='w-10' src={IconNewExpenditure} alt="Icono de nuevo gasto" onClick={() => handleNewExpenditure()} />
           </div>

@@ -4,7 +4,7 @@ import ControlBudget from './ControlBudget'
 
 
 
-const Header = ({ setBudget, budget, isValidBudget, setIsValidBudget, expenses }) => {
+const Header = ({ setBudget, budget, isValidBudget, setIsValidBudget, expenses, setExpenses }) => {
   return (
     <header className='shadow-box bg-blue-400 flex flex-col p-3 items-center rounded-md text-white w-[90%] md:w-[80%]'>
         <p className='text-3xl mt-2'>Control de Gastos</p>
@@ -12,7 +12,10 @@ const Header = ({ setBudget, budget, isValidBudget, setIsValidBudget, expenses }
 {isValidBudget ? (
     <ControlBudget
     budget={budget}
+    setBudget={setBudget}
     expenses={expenses}
+    setExpenses={setExpenses}
+    setIsValidBudget={setIsValidBudget}
     />
 ) : (
     <NewBudget 

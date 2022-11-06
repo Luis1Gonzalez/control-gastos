@@ -1,14 +1,16 @@
 import React from 'react'
 
-const Filters = ({ filter, setFilter }) => {
+const Filters = ({ filterx, setFilterx }) => {
+    console.log(filterx)
     return (
         <div className='shadow-box w-[100%]'>
 
             <form action="" className=''>
 
                 <div className='flex my-3 w-[100%] h-[50px] justify-center '>
-                <label htmlFor="selectCategory" className='mx-3 flex items-center text-xl'>Filtrar Gastos</label>
-                    <select id="selectCategory" type="text" value={filter} className='text-gray-500 rounded-sm' onChange={(e) => setFilter(e.target.value)}>
+                <label htmlFor="selectCategory" className='mx-3 flex items-center text-xs sm:text-xl'>Filtrar Gastos</label>
+                <select name="" id="" value={filterx} onChange={(e) => setFilterx(e.target.value)}>
+                    {/* <select id="selectCategory" type="text" value={filterx} className='text-gray-500 rounded-sm text-xs sm:text-xl text-center' onChange={(e) => setFilterx(e.target.value)}> */}
                         <option value="">-- Todas las Categorías --</option>
                         <option value="ahorro">Ahorro</option>
                         <option value="alimentacion">Alimentación</option>

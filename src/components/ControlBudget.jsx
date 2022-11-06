@@ -5,7 +5,7 @@ import "react-circular-progressbar/dist/styles.css"
 import Message from './Message'
 import { Children } from 'react'
 
-const ControlBudget = ({ budget, expenses }) => {
+const ControlBudget = ({ budget, setBudget, expenses, setExpenses, setIsValidBudget }) => {
 
     const [spent, setSpent] = useState(0);
     const [available, setAvailable] = useState(0);
@@ -33,6 +33,16 @@ const ControlBudget = ({ budget, expenses }) => {
 
     }, [expenses])
 
+    const handleResetApp = () => {
+        const result = confirm('¿Deseas Reiniciar la App?')
+
+        if (result) {
+            setExpenses([])
+            setBudget('')
+            setIsValidBudget(false)
+        }
+    }
+
     return (
         <div className='bg-white text-blue-500 w-[90%] min-h-[220px] md:w-[75%] font-bold rounded-md my-4 px-2 flex flex-col items-center sm:flex-row'>
             <div className='w-[70%] sm:w-2/4 flex justify-center pt-3 h-[160px]'>
@@ -46,7 +56,13 @@ const ControlBudget = ({ budget, expenses }) => {
                     text={percentage > 200 ? '!Error' : `${percentage}%`}
                 />
             </div>
+
             <div className='my-3  md:w-2/4 flex flex-col justify-around h-full sm:py-8'>
+
+<div className=' flex  justify-center my-2 sm:my-0'>
+<button onClick={handleResetApp} className='bg-red-800 rounded-md py-1 text-white shadow-box w-[70%]'>Reset App</button>
+</div>
+
                 <p>Presupuesto:<span className='text-gray-500 font-normal'>{` ${formatCurrency(budget)}`}</span></p>
                 <p>Disponible:<span className='text-gray-500 font-normal'>{` ${formatCurrency(available)}`}</span></p>
                 <p>Gastado:<span className='text-gray-500 font-normal'>{` ${formatCurrency(spent)}`}</span></p>

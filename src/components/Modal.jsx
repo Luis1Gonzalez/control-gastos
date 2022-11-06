@@ -58,15 +58,15 @@ const Modal = ({ saveExpenses, animationModal, setAnimationModal, setModal, setE
                 {message && <Message type='error'>{message}</Message>}
 
                 <div className='flex flex-row my-3'>
-                    <input id="name" value={name} type="text" placeholder="Añade un Gasto" className='placeholder:text-gray-500 rounded-sm placeholder:text-center text-black text-center' onChange={(e) => setName(e.target.value)} />
+                    <input id="name" value={name} type="text" placeholder="Añade un Gasto" className='placeholder:text-gray-500 rounded-md placeholder:text-center text-black text-center' onChange={(e) => setName(e.target.value)} />
                 </div>
 
                 <div className='flex my-3'>
-                    <input id="quantity" value={quantity} type="text" placeholder="Añade la Cantidad" className='placeholder:text-gray-500 rounded-sm placeholder:text-center text-black text-center' onChange={(e) => setQuantity(Number(e.target.value))} />
+                    <input id="quantity" value={quantity} type="text" placeholder="Añade la Cantidad" className='placeholder:text-gray-500 rounded-md placeholder:text-center text-black text-center' onChange={(e) => setQuantity(Number(e.target.value))} />
                 </div>
 
                 <div className='flex my-3'>
-                    <select id="category" type="text" value={category} className='text-gray-500 rounded-sm' onChange={(e) => setCategory(e.target.value)}>
+                    <select id="category" type="text" value={category} className='text-gray-500 rounded-md bg-green-300 px-6' onChange={(e) => setCategory(e.target.value)}>
                         <option value="">-- Categoría --</option>
                         <option value="ahorro">Ahorro</option>
                         <option value="alimentacion">Alimentación</option>
