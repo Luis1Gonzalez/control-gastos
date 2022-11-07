@@ -31,7 +31,7 @@ const UnitExpense = ({ expense, deleteExpense, setExpenseEdit }) => {
     return (
 
 
-                <div className='flex flex-col py-3 px-1 md:p-3 w-full sm:flex-row shadow-box text-gray-700 my-3'>
+                <div className='flex flex-col py-3 px-1 sm:p-3 w-full sm:flex-row shadow-box text-gray-700 my-3'>
 
                     <div className='cursor-pointer h-auto flex py-1 items-center sm:w-3/5 md:mx-3' onClick={() => setExpenseEdit(expense)}>
                         <img className='h-[65px] mx-1 md:mx-3' src={categoryDictionary[category]} alt="iconos de los gastos" />
