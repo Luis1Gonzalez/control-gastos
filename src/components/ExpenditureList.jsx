@@ -5,7 +5,7 @@ import UnitExpense from './UnitExpense'
 const ExpenditureList = ({ expenses, deleteExpense, setExpenseEdit, filtro, gastosFiltrados }) => {
 
   return (
-    <div className='w-[90%] md:w-[80%] '>
+    <div className='w-[100%] md:w-[100%] '>
 
       {
         filtro ? (

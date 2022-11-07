@@ -1,12 +1,4 @@
 import React from 'react'
-import {
-    LeadingActions,
-    SwipeableList,
-    SwipeableListItem,
-    SwipeAction,
-    TrailingActions,
-} from 'react-swipeable-list'
-import 'react-swipeable-list/dist/styles.css'
 import IconoAhorro from './../assets/img/icono_ahorro.svg'
 import IconoCasa from './../assets/img/icono_casa.svg'
 import IconoComida from './../assets/img/icono_comida.svg'
@@ -34,36 +26,32 @@ const UnitExpense = ({ expense, deleteExpense, setExpenseEdit }) => {
 
     const { name, quantity, category, dateNow, id } = expense
 
-    const leadingActions = () => (
-        <LeadingActions>
-            <SwipeAction onClick={() => setExpenseEdit(expense)}>
-                Editar
-            </SwipeAction>
-        </LeadingActions>
-    );
+    // const leadingActions = () => (
+    //     <LeadingActions>
+    //         <SwipeAction onClick={() => setExpenseEdit(expense)}>
+    //             Editar
+    //         </SwipeAction>
+    //     </LeadingActions>
+    // );
 
-    const trailingActions = () => (
-        <TrailingActions>
-            <SwipeAction
-                destructive={true}
-                onClick={() => deleteExpense(id)}
-            >
-                Eliminar
-            </SwipeAction>
-        </TrailingActions>
-    );
+    // const trailingActions = () => (
+    //     <TrailingActions>
+    //         <SwipeAction
+    //             destructive={true}
+    //             onClick={() => deleteExpense(id)}
+    //         >
+    //             Eliminar
+    //         </SwipeAction>
+    //     </TrailingActions>
+    // );
 
     return (
-        <SwipeableList>
-            <SwipeableListItem
-                leadingActions={leadingActions()}
-                trailingActions={trailingActions()}
-            >
 
-                <div className='flex flex-col p-3 w-full sm:flex-row shadow-box text-gray-700 my-3'>
 
-                    <div className='h-auto  flex py-2 items-center sm:w-3/4'>
-                        <img className='h-[80px] mx-2' src={categoryDictionary[category]} alt="iconos de los gastos" />
+                <div className='flex flex-col py-3 px-1 md:p-3 w-full sm:flex-row shadow-box text-gray-700 my-3'>
+
+                    <div className='h-auto  flex py-1 items-center sm:w-3/4 md:mx-3'>
+                        <img className='h-[80px] mx-1 md:mx-3' src={categoryDictionary[category]} alt="iconos de los gastos" />
                         <div>
                             <p className='uppercase text-sm sm:text-2xl font-bold'>{category}</p>
                             <p className='capitalize text-xs  sm:text-xl font-bold'>{name}</p>
@@ -73,8 +61,7 @@ const UnitExpense = ({ expense, deleteExpense, setExpenseEdit }) => {
                     <p className='flex justify-end items-center px-5 sm:mx-8 font-bold text-md sm:text-xl lg:text-3xl sm:w-1/4'>{formatCurrency(quantity)}</p>
                 </div>
 
-            </SwipeableListItem>
-        </SwipeableList>
+
     )
 }
 
