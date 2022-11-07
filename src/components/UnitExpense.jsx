@@ -33,7 +33,7 @@ const UnitExpense = ({ expense, deleteExpense, setExpenseEdit }) => {
                 <div className='flex flex-col py-3 px-1 sm:p-3 w-full sm:flex-row shadow-box text-gray-700 my-3'>
 
                     <div className='cursor-pointer h-auto flex py-1 items-center sm:w-3/4 md:mx-3' onClick={() => setExpenseEdit(expense)}>
-                        <img className='h-[65px] mx-1 md:mx-3' src={categoryDictionary[category]} alt="iconos de los gastos" />
+                        <img className='h-[65px] mx-2 md:mx-3' src={categoryDictionary[category]} alt="iconos de los gastos" />
                         <div className=''>
                             <p className='uppercase text-sm sm:text-2xl font-bold'>{category}</p>
                             <p className='capitalize text-xs  sm:text-xl font-bold'>{name}</p>
