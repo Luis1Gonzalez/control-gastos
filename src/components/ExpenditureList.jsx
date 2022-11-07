@@ -3,9 +3,7 @@ import UnitExpense from './UnitExpense'
 
 
 const ExpenditureList = ({ expenses, deleteExpense, setExpenseEdit, filtro, gastosFiltrados }) => {
-  console.log(expenses)
-  console.log(filtro)
-  console.log(gastosFiltrados)
+
   return (
     <div className='w-[90%] md:w-[80%] '>
 

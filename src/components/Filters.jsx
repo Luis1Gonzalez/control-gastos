@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Filters = ({ filtro, setFiltro }) => {
-    console.log(filtro)
+
     return (
         <div className='shadow-box w-[100%]'>
 

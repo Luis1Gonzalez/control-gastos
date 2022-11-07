@@ -52,7 +52,7 @@ const UnitExpense = ({ expense, deleteExpense, setExpenseEdit }) => {
             </SwipeAction>
         </TrailingActions>
     );
-console.log(expense)
+
     return (
         <SwipeableList>
             <SwipeableListItem
