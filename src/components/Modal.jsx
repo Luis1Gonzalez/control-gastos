@@ -45,7 +45,7 @@ const Modal = ({ saveExpenses, animationModal, setAnimationModal, setModal, setE
     }
 
     return (
-        <div className='modal text-white text-2xl'>
+        <div className='modal text-white text-2xl h-full opacity-95'>
 
             <div className='absolute right-6 top-6 w-6 h-6'>
                 <img src={CloseBtn} alt="boton cerrar modal" onClick={hiddenModal} />
