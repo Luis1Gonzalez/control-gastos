@@ -36,7 +36,7 @@ const UnitExpense = ({ expense, deleteExpense, setExpenseEdit }) => {
 
     const leadingActions = () => (
         <LeadingActions>
-            <SwipeAction onClick={() => setExpenseEdit(expense) && console.log(expense)}>
+            <SwipeAction onClick={() => setExpenseEdit(expense)}>
                 Editar
             </SwipeAction>
         </LeadingActions>
@@ -52,7 +52,7 @@ const UnitExpense = ({ expense, deleteExpense, setExpenseEdit }) => {
             </SwipeAction>
         </TrailingActions>
     );
-
+console.log(expense)
     return (
         <SwipeableList>
             <SwipeableListItem

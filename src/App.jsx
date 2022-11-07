@@ -17,6 +17,8 @@ function App() {
   const [expenses, setExpenses] = useState(localStorage.getItem('expenses') ? JSON.parse(localStorage.getItem('expenses')) : [])
   const [animationModal, setAnimationModal] = useState(false)
   const [expenseEdit, setExpenseEdit] = useState({})
+  const [filtro, setFiltro] = useState('')
+  const [gastosFiltrados, setGastosFiltrados] = useState([])
 
 
   useEffect(() => {
@@ -81,6 +83,13 @@ function App() {
     localStorage.setItem('expenses', JSON.stringify(expenses) ?? [])
   }, [expenses])
 
+  useEffect(() => {
+    if(filtro){
+      const gastosFiltrados = expenses.filter(expense => expense.category === filtro);
+      setGastosFiltrados(gastosFiltrados)
+    }
+      },[filtro])
+
   return (
 
     <div className={modal ? "classHidden" : "w-full flex flex-col items-center min-w-[320px] max-w-[924px]"}>
@@ -97,10 +106,17 @@ function App() {
         <>
           <main className='w-[90%] flex flex-col items-center my-4'>
 
+          <Filters
+              filtro={filtro}
+              setFiltro={setFiltro}
+            />
+
             <ExpenditureList
               expenses={expenses}
               deleteExpense={deleteExpense}
               setExpenseEdit={setExpenseEdit}
+              filtro={filtro}
+              gastosFiltrados={gastosFiltrados}
 
             />
           </main>
