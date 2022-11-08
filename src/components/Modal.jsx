@@ -62,7 +62,7 @@ const Modal = ({ saveExpenses, animationModal, setAnimationModal, setModal, setE
                 </div>
 
                 <div className='flex my-3'>
-                    <input id="quantity" value={quantity} type="text" placeholder="Añade la Cantidad" className='placeholder:text-gray-500 rounded-md placeholder:text-center text-black text-center' onChange={(e) => setQuantity(Number(e.target.value))} />
+                    <input id="quantity" value={quantity} type="number" placeholder="Añade la Cantidad" className='placeholder:text-gray-500 rounded-md placeholder:text-center text-black text-center' onChange={(e) => setQuantity(Number(e.target.value))} />
                 </div>
 
                 <div className='flex my-3'>
